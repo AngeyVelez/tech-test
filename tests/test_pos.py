@@ -12,6 +12,6 @@ def test_change_pos(setup, pos):
     home_page = HomePage(driver)
     home_page.chage_pos(pos)
     country = home_page.get_selected_pos()
-    assert pos in country.text
+    assert pos in country
 
 
