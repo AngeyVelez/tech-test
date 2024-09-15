@@ -11,8 +11,8 @@ def test_change_lenguange(setup, language, expected_lang):
     driver = setup
     driver.get("https://nuxqa6.avtest.ink/es/")
     home_page = HomePage(driver)
-    home_page.chage_lenguage(language)
-    lang = home_page.get_selected_lenguage()
+    home_page.change_language(language)
+    lang = home_page.get_selected_language()
     assert lang == expected_lang
 
 

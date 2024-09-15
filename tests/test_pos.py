@@ -10,7 +10,7 @@ def test_change_pos(setup, pos):
     driver = setup
     driver.get("https://nuxqa6.avtest.ink/es/")
     home_page = HomePage(driver)
-    home_page.chage_pos(pos)
+    home_page.change_pos(pos)
     country = home_page.get_selected_pos()
     assert pos in country
 

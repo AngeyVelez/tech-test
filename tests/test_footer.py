@@ -11,7 +11,7 @@ def test_footer(setup, language, lang, opt, expected_url):
     driver = setup
     driver.get("https://nuxqa6.avtest.ink/")
     home_page = HomePage(driver)
-    home_page.chage_lenguage(language)
+    home_page.change_language(language)
     home_page.footer_navigate(opt)
     url_found = home_page.get_url()
     assert f"{lang}/{expected_url}" in url_found
