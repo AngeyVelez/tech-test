@@ -19,6 +19,8 @@ class HomePage:
         self.origin_btn = "originBtn"
         self.origin_div = "originDiv"
         self.destination_path = "arrivalStationInputLabel"
+        self.passengers_btn = "paxControlSearchId"
+        self.search_btn = "searchButton"
 
     def change_language(self, new_lenguage):
         wait_for_element(self.driver, By.XPATH, f"//button[contains(@id,'{self.language_btn}')]", timeout=10).click()
@@ -67,3 +69,14 @@ class HomePage:
         input_origin = wait_for_element(self.driver, By.XPATH, f"//div[contains(@id,'{self.destination_path}')]/following-sibling::input", timeout=10)
         input_origin.send_keys(destination_code)
         input_origin.send_keys(Keys.ENTER)
+
+    def select_passengers(self):
+        wait_for_element(self.driver, By.XPATH, f"//div[contains(@class, 'pax-control')]//button[@class = 'control_field_button']", timeout=10).click()
+
+    # type 1 = adult | 2 = young | 3 = child | 4 = infant
+    # operator minus | plus
+    def update_passenger_count(self, type, operator):
+        wait_for_element(self.driver, By.XPATH, f"//div[@id='{self.passengers_btn}']//li[{type}]//button[contains(@class, '{operator}')]", timeout=10).click()
+
+    def click_search(self):
+        wait_for_element(self.driver, By.ID, self.search_btn, timeout=10)

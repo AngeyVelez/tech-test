@@ -13,6 +13,10 @@ def test_nav(setup, journey_type, language, pos, origin, destination):
     home_page.set_journey_type(journey_type)
     home_page.change_origin(origin)
     home_page.change_destination(destination)
+    home_page.select_passengers()
+    home_page.update_passenger_count(2, "plus")
+    home_page.update_passenger_count(3, "plus")
+    home_page.update_passenger_count(4, "plus")
     assert 1
 
 
