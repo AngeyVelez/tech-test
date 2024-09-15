@@ -1,13 +1,18 @@
+import time
 from selenium.webdriver.common.by import By
 
 class HomePage:
     def __init__(self, driver):
         self.driver = driver
+
         self.lenguage_btn = "languageListTriggerId"
         self.lenguages_options = "optionId_languageListOptionsLisId"
+
         self.pos_btn = "pointOfSaleSelectorId"
         self.pos_options_class = "points-of-sale_list_item_button"
         self.pos_apply_btn = "points-of-sale_footer_action_button"
+
+        self.footer_3 = "footerNavListId-3"
 
     def chage_lenguage(self, new_lenguage):
         self.driver.find_element(By.XPATH, f"//button[contains(@id,'{self.lenguage_btn}')]").click()
@@ -26,3 +31,8 @@ class HomePage:
     def get_selected_pos(self):
         pos_selected = self.driver.find_element(By.XPATH, f"//button[contains(@id, '{self.pos_btn}')]")
         return pos_selected.text
+    
+    def get_footer_opt(self, opt):
+        get_opt = self.driver.find_element(By.XPATH, f"//ul[contains(@id, '{self.footer_3}')]/li/a/span[contains(text(), '{opt}')]/parent::a").click() 
+        new_url = self.driver.current_url
+        return new_url
