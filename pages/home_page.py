@@ -38,6 +38,7 @@ class HomePage:
         self.driver.find_element(By.XPATH, f"//ul[contains(@id, '{self.footer_quick_links}')]/li/a/span[contains(text(), '{opt}')]/parent::a").click() 
     
     def get_url(self):
+        time.sleep(2)
         new_url = self.driver.current_url
         return new_url    
 
