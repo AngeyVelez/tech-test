@@ -32,7 +32,6 @@ class HomePage:
         return lang
     
     def change_pos(self, new_pos):
-        time.sleep(2)
         wait_for_element(self.driver, By.XPATH, f"//button[contains(@id, '{self.pos_btn}')]", timeout=10).click()
         wait_for_element(self.driver, By.XPATH, f"//button[contains(@class,'{self.pos_options}') and .//span[contains(text(), '{new_pos}')]]", timeout=10).click()
         wait_for_element(self.driver, By.XPATH, f"//button[contains(@class, '{self.pos_apply_btn}')]", timeout=10).click()
@@ -45,6 +44,7 @@ class HomePage:
         wait_for_element(self.driver, By.XPATH, f"//ul[contains(@id, '{self.footer_quick_links}')]/li/a/span[contains(text(), '{opt}')]/parent::a", timeout=10).click() 
     
     def get_url(self):
+        time.sleep(3)
         new_url = self.driver.current_url
         return new_url    
 
@@ -79,4 +79,4 @@ class HomePage:
         wait_for_element(self.driver, By.XPATH, f"//div[@id='{self.passengers_btn}']//li[{type}]//button[contains(@class, '{operator}')]", timeout=10).click()
 
     def click_search(self):
-        wait_for_element(self.driver, By.ID, self.search_btn, timeout=10)
+        wait_for_element(self.driver, By.ID, self.search_btn, timeout=10).click()
