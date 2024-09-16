@@ -14,7 +14,7 @@ class SelectFlightPage:
         wait_for_element(self.driver, By.XPATH, f"//button[contains(@class,'{self.price_btn}')]", timeout=10).click()
 
     def select_basic_flight(self):
-        wait_for_element(self.driver, By.XPATH, f"//{self.journey_fare}//div", timeout=10).click()
+        wait_for_clickable_element(self.driver, By.XPATH, f"//{self.journey_fare}//button", timeout=10).click()
 
     def click_continue(self):
         wait_for_element(self.driver, By.XPATH, f"//button[contains(@class, '{self.continue_btn}')]", timeout=10).click()
