@@ -1,14 +1,10 @@
 # Configuration file and fixtures
 import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+from drivers.driver_manager import DriverManager
 
-@pytest.fixture
-def setup():
-    # Configure the service for ChromeDriver
-    service = Service(executable_path="C:\SeleniumDrivers\chromedriver.exe")
-    # Start WebDriver for Chrome
-    driver = webdriver.Chrome(service=service)
+@pytest.fixture(params=["chrome", "edge", "firefox"])
+def setup(request):
+    driver = DriverManager.get_driver(request.param)
     driver.maximize_window()
     yield driver
     # Close the browser
