@@ -17,6 +17,5 @@ class SelectFlightPage:
         wait_for_element(self.driver, By.XPATH, f"//{self.journey_fare}//div", timeout=10).click()
 
     def click_continue(self):
-        print("aquiiiii!!!! POR FAVAAARR ", f"//button[contains(@class, '{self.continue_btn}')]")
-        wait_for_clickable_element(self.driver, By.XPATH, f"//button[contains(@class, '{self.continue_btn}')]", timeout=5000).click()
+        wait_for_element(self.driver, By.XPATH, f"//button[contains(@class, '{self.continue_btn}')]", timeout=10).click()
 

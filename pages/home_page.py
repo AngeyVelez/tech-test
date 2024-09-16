@@ -66,6 +66,7 @@ class HomePage:
         input_origin.send_keys(Keys.ENTER)
     
     def change_destination(self, destination_code):
+        time.sleep(1)
         input_origin = wait_for_element(self.driver, By.XPATH, f"//div[contains(@id,'{self.destination_path}')]/following-sibling::input", timeout=10)
         input_origin.send_keys(destination_code)
         input_origin.send_keys(Keys.ENTER)
